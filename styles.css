@@ -1,0 +1,243 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0; /* Reduced padding to make the header vertically shorter */
+    font-size: 2.5em;
+    font-family: 'Impact', sans-serif;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* To make the center section appear in front */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    position: relative; /* To make the center section appear in front */
+    z-index: 1; /* To ensure the center section appears in front */
+}
+
+.player-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    margin: 0 20px;
+    z-index: 0; /* Ensure player sections are behind the center section */
+}
+
+.player-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+}
+
+@keyframes enlarge-shake {
+    0% {
+        transform: scale(1) translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: scale(1.5) translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: scale(1.5) translateX(10px);
+    }
+    100% {
+        transform: scale(1) translateX(0);
+    }
+}
+
+.animate-enlarge-shake {
+    animation: enlarge-shake 2s ease-in-out;
+}
+
+.center-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Ensure the center section is in front */
+}
+
+.chess-board {
+    display: grid;
+    grid-template-columns: repeat(8, 25px); /* Smaller size */
+    grid-template-rows: repeat(8, 25px); /* Smaller size */
+    gap: 0;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.chess-board div {
+    width: 25px; /* Smaller size */
+    height: 25px; /* Smaller size */
+}
+
+.chess-board .white {
+    background-color: #fff;
+}
+
+.chess-board .black {
+    background-color: #000;
+}
+
+.center-image {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 10px;
+    display: none;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.scoreboard {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.scoreboard h2 {
+    margin: 0;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-family: 'Impact', sans-serif;
+}
+
+.score {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .player-section {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .player-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .center-section {
+        position: static;
+        transform: none;
+        margin: 20px 0;
+    }
+
+    .chess-board {
+        grid-template-columns: repeat(8, 20px);
+        grid-template-rows: repeat(8, 20px);
+    }
+
+    .chess-board div {
+        width: 20px;
+        height: 20px;
+    }
+
+    .center-image {
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .scoreboard h2 {
+        font-size: 1.2em;
+    }
+
+    .score {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.5em;
+    }
+
+    .player-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .player-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .chess-board {
+        grid-template-columns: repeat(8, 15px);
+        grid-template-rows: repeat(8, 15px);
+    }
+
+    .chess-board div {
+        width: 15px;
+        height: 15px;
+    }
+
+    .center-image {
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .scoreboard h2 {
+        font-size: 1em;
+    }
+
+    .score {
+        font-size: 1em;
+    }
+}
