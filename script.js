@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const blackWinsElement = document.getElementById('black-wins');
     const player1Sound = document.getElementById('player1-sound');
     const player2Sound = document.getElementById('player2-sound');
-    let whiteWins = 0;
-    let blackWins = 0;
+    
+    // Load the win counts from localStorage or set to 0 if not available
+    let whiteWins = parseInt(localStorage.getItem('whiteWins')) || 0;
+    let blackWins = parseInt(localStorage.getItem('blackWins')) || 0;
 
     // Check if center image exists
     fetch('images/center_image/vs.png')
@@ -46,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateScoreboard() {
         whiteWinsElement.textContent = whiteWins;
         blackWinsElement.textContent = blackWins;
+        // Save the win counts to localStorage
+        localStorage.setItem('whiteWins', whiteWins);
+        localStorage.setItem('blackWins', blackWins);
     }
 
     // Functions to increase wins
@@ -75,5 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 2000); // Duration of the animation
     }
 
+    // Initial update of the scoreboard
     updateScoreboard();
 });
