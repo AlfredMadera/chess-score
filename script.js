@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let blackWins = 0;
 
     // Check if center image exists
-    fetch('images/center_image/center.jpg')
+    fetch('images/center_image/vs.png')
         .then(response => {
             if (response.ok) {
-                centerImage.src = 'images/center_image/center.jpg';
+                centerImage.src = 'images/center_image/vs.png';
                 centerImage.style.display = 'block';
                 chessBoard.style.display = 'none';
             } else {

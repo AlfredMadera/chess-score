@@ -13,8 +13,8 @@ body {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
+    background-color: rgba(235, 19, 19, 0.8);
+    color: #5d00e7;
     text-align: center;
     padding: 10px 0; /* Reduced padding to make the header vertically shorter */
     font-size: 2.5em;
@@ -22,6 +22,7 @@ header {
 }
 
 main {
+    background-color: rgba(0, 0, 0, 0.9);
     flex: 1;
     display: flex;
     justify-content: center;
@@ -30,6 +31,8 @@ main {
 }
 
 .container {
+    background-color: rgb(255, 174, 0);
+    color: #5d00e7;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -147,8 +150,8 @@ main {
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
+    background-color: rgba(235, 19, 19, 0.8);
+    color: #5d00e7;
     text-align: center;
     padding: 10px 0;
     width: 100%;
@@ -176,7 +179,7 @@ footer {
     .center-section {
         position: static;
         transform: none;
-        margin: 20px 0;
+        margin: 20px ;
     }
 
     .chess-board {
